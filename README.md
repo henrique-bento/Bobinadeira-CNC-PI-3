@@ -16,14 +16,31 @@ Utilizando de conceitos e aprendizados provenientes do curso de engenharia eletr
 A bobinadeira e uma ferramenta utilizada no chão de fabrica e busca agilizar a produção da melhor maneira possível e com o menor auxilio possível de um colaborador, podendo assim reduzir o tempo de confecção dos sensores com a melhor precisão e qualidade de confecção.Seguindo esse pensamento, nesta etapa nós desenvolvedores devemos nos apropriar do contexto, definir os requisitos e meios para alcançar nossos objetivos, sendo estes:
 
 * Realimentação de posição inicial;
-* Sistema de controle de posição em caso de emergência;
-* Controle de cargas, visando redução de detritos e controle do spindle;
-* Sinalização auditiva/visual de processo concluído;
-* Sistema de parada de emergência;
-* IHM resistente ao chão de fabrica e que possa ser usada com luvas;
-* Central para visualização de medidas dos sensores;
-* Entrada e alteração das medidas dos sensores;
-* Precisão de movimento com uma velocidade adequada;
+  O sistema de controle de posição inicial serve para a maquina ter um controle da posição de inicio de trajeto, esse processo sera feito toda vez que uma operação for realizada cada eixo tera um sensor indutivo que indicara a posição zero de cada eixo.
 
-Abaixo é apresentado o diagrama de blocos que resumem a concepção de funcionamento inicial que possibilita a partir dos requisitos acima selecionar como cada requisito sera atendido.
+* Sistema de controle de posição em caso de emergência;
+  O sistema de controle em caso de erro de trajeto que causa uma pausa de emergência sera feito no extremos de cada eixo e sera feito com chaves fim de curso mecânicas.
+
+* Controle de cargas, visando redução de detritos e controle do spindle;
+ O controle de cargas se refere a controle de reles que são acionados com sinais de até 5V que podem acionar diferentes tipos de cargas, algumas propostas são um sistema de aspiração de detritos e o spindle se usada a opção de furação.
+
+* Sinalização auditiva/visual de processo concluído;
+  A sinalização auditiva e visual serve para sinalização e enformar a finalização de processo e assim feito a preparação para a nova operação. Como se trata de uma maquina destinada para chão de fabrica a sinalização visual a tecnologia escolhida e uma torre de sinalização industrial que contem tanto sinal auditivo como visual e possui um acionamento de 220V.
+
+* Sistema de parada de emergência;
+  O sistema de parada de emergência consistira em botões retentores que irão paralisar o processo que esta sendo executado e o processo só voltara a executar assim que o botão for desativado, esse sistema trás a possibilidade de se fazer algum ajuste mecânico para não se perder o processo ou aconteça algo que possa causar um acidente.
+
+* IHM resistente ao chão de fabrica e que possa ser usada com luvas;
+  A interface homem maquina e de suma importância para o controle da mesma sera realizado com um display com comunicação serial touch screen com característica resistiva assim pode ser operado com luvas e tendo uma melhor resistência a variação de temperatura.
+
+* Central para visualização de medidas dos sensores;
+  Esse sistema sera implementado através de softwares e sera uma pagina que ira exibir as características dos sensores indutivos e como sera sua confecção possibilitando assim averiguar se as medidas do processo estão de acordo com o projeto inicial.
+
+* Entrada e alteração das medidas dos sensores;
+  A entrada e alteração dos valores dos sensores e um funcionalidade muito util para possibilitar que pequenos ajustes sejam feitos ou até mesmo uma mudança de projeto maior seja implementada sem que o programa da maquina tenha que ser atualizado assim deixando o equipamento mais independente e de fácil manuseio e atualização.
+
+* Precisão de movimento com uma velocidade adequada;
+  Atualmente com o microcontrolador utilizado um Atmega 2560 que esta numa plataforma Arduíno se tem uma limitação de velocidade de passo e precisão pelo clock reduzido da mesmo sendo somente de 16 MHz, para se retirar essa limitação e fazer a versão final que consegue extrair a velocidade máxima e ideal dos motores o microcontrolador que pode ser utilizado nesse caso pode ser um ESP32 que por exemplo tem disponível um clock de ate 240 Mhz outra possibilidade é um microcontrolador da família STM32 que também possua a especificação adequada onde a disponibilidade ,preço e acesso a informação ira selecionar qual a melhor escolha.
+
+Abaixo é apresentado o diagrama de blocos que resumem de uma maneira visual a concepção de funcionamento do projeto que possibilita a partir dos requisitos acima selecionar como cada requisito sera atendido.
 ![Diagrama de blocos PI3](https://raw.githubusercontent.com/henrique-bento/Bobinadeira-CNC-PI-3/main/img_PI3/diagrama%20de%20blocos%20PI3.jpg)
